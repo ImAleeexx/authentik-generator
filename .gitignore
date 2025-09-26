@@ -1,0 +1,7 @@
+intermediate.key
+intermediate.pem
+leaf.key
+leaf.pem
+rootCA.crt
+rootCA.key
+license.jwt

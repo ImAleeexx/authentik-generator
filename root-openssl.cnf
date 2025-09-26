@@ -1,0 +1,50 @@
+[ ca ]
+default_ca = CA_default
+
+[ CA_default ]
+dir               = ./demoCA
+database          = $dir/index.txt
+new_certs_dir     = $dir/newcerts
+serial            = $dir/serial
+default_md        = sha384
+policy            = policy_any
+default_days      = 36500
+preserve          = no
+
+[ policy_any ]
+commonName             = supplied
+countryName            = optional
+stateOrProvinceName    = optional
+organizationName       = optional
+organizationalUnitName = optional
+
+[ req ]
+default_bits        = 384
+prompt              = no
+default_md          = sha384
+distinguished_name  = dn
+req_extensions      = req_ext
+
+[ dn ]
+C  = JM
+ST = Jamaica
+L  = Mi Bomboo
+street = 123 Bomboclat Street
+postalCode = 00033
+O  = Bomboclat Security Inc.
+OU = Enterprise Licenses
+CN = Bomboclat Security Inc. Enterprise Licensing Root X1
+
+[ req_ext ]
+basicConstraints = critical, CA:TRUE
+keyUsage = critical, cRLSign, keyCertSign
+subjectKeyIdentifier = hash
+
+[ v3_ca ]
+basicConstraints = critical, CA:TRUE, pathlen:0
+keyUsage = critical, cRLSign, keyCertSign
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer:always
+authorityInfoAccess = OCSP;URI:https://vault.customers.mibombo.local/v1/licensing-ca/ocsp, caIssuers;URI:https://vault.customers.mibombo.local/v1/licensing-ca/ca
+crlDistributionPoints = URI:https://vault.customers.mibombo.local/v1/licensing-ca/crl
+

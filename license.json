@@ -1,0 +1,8 @@
+{
+  "aud": "enterprise.goauthentik.io/license/<YOUR-INSTALLATION-IDENTIFIER>",
+  "name": "Bomboclat Enterprise License",
+  "internal_users": 9999,
+  "external_users": 9999,
+  "license_flags": [],
+  "expiry_days": 3650
+}
